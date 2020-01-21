@@ -13,20 +13,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("👍🏽 viewDidLoad has run!")
-        messageLabel.text = "Fabulous? That's You!"
     }
 
     
     @IBAction func messageButtonPressed(_ sender: UIButton) {
-        print("😎 The message button was pressed!")
-        messageLabel.text = "You Are Awesome!"
-        messageLabel.textColor = UIColor.red
-    }
-    
-    @IBAction func showAnotherMessagePressed(_ sender: UIButton) {
-        messageLabel.text = "You Are Great!"
-        messageLabel.textColor = UIColor.blue
-    }
-}
+        if messageLabel.text == "You Are Awesome!" {
+            messageLabel.text = "You Are Great!"
+        } else if messageLabel.text == "You Are Great!" {
+            messageLabel.text = "You Are Amazing!"
+        } else {
+            messageLabel.text = "You Are Awesome!"
+        }
 
+    }
+
+}
