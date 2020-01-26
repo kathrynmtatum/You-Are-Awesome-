@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
-    let message1 = "You Are Awesome!"
-    let message2 = "You Are Great!"
-    let message3 = "You Are Amazing!"
+    
+    var imageNumber = 0
+    var messageNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,15 @@ class ViewController: UIViewController {
     
     @IBAction func messageButtonPressed(_ sender: UIButton) {
         
-        if messageLabel.text == message1 {
-            messageLabel.text = message2
-        } else if messageLabel.text == message2 {
-            messageLabel.text = message3
-        } else {
-            messageLabel.text = message1
+        let messages = ["You Are Cool!", "You Are Nice!", "You Are Funny!"]
+        
+        messageLabel.text = messages[messageNumber]
+        messageNumber += 1
+        if messageNumber == messages.count {
+            messageNumber = 0
+            
         }
+        
 
     }
 
