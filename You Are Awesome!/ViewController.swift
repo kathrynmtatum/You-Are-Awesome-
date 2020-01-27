@@ -27,32 +27,15 @@ class ViewController: UIViewController {
         
         let messages = ["You Are Awesome!", "You Are Great!", "You Are Fantastic!", "Fabulous? That's You!", "When the Genuis Bar Needs Help, They Call You!"]
         
-        messageLabel.text = messages[Int.random(in: 0...messages.count-1)]
+        var newMessage = messages[Int.random(in: 0...messages.count-1)]
+        while messageLabel.text == newMessage {
+            print("*** Repeating value. Both newMessage and messageLabel.text = \(newMessage) and \(messageLabel.text)")
+            newMessage = messages[Int.random(in: 0...messages.count-1)]
+        }
+        messageLabel.text = newMessage
+        
         imageView.image = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
         
-        
-        //print(imageNumber)
-        let imageName = "image\(imageNumber)"
-        imageView.image = UIImage(named: imageName)
-        imageNumber = imageNumber + 1
-        if imageNumber == 10 {
-            imageNumber = 0
-        }
-        
-//        let randomNumber = Int.random(in: 0...2)
-//        print(randomMessage[randomNumber])
-        
-        
-//        if messageLabel.text == "You Are Awesome!" {
-//            messageLabel.text = "You Are Great!"
-//            imageView.image = UIImage(named: "image1")
-//        } else if messageLabel.text == "You Are Great!" {
-//            messageLabel.text = "You Are Da Bomb!"
-//            imageView.image = UIImage(named: "image2")
-//        } else {
-//            messageLabel.text = "You Are Awesome!"
-//            imageView.image = UIImage(named: "image0")
-//        }
         
     }
     
