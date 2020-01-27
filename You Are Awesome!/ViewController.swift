@@ -29,12 +29,18 @@ class ViewController: UIViewController {
         
         var newMessage = messages[Int.random(in: 0...messages.count-1)]
         while messageLabel.text == newMessage {
-            print("*** Repeating value. Both newMessage and messageLabel.text = \(newMessage) and \(messageLabel.text)")
+            print("*** Repeating value. Both newMessage and messageLabel.text = \(newMessage) and \(messageLabel.text!)")
             newMessage = messages[Int.random(in: 0...messages.count-1)]
         }
         messageLabel.text = newMessage
         
-        imageView.image = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
+        var newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
+        while imageView.image == newImage {
+            print("*** Repeating image. Both newImage and imageView.image = \(newImage) and \(imageView.image!)")
+            newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberOfImages))")
+        }
+        
+        imageView.image = newImage
         
         
     }
